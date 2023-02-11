@@ -29,8 +29,6 @@ export const Jet = {
       element.props.children = children;
     }
 
-    console.log('yo element', element)
-
     return element;
   },
 

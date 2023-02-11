@@ -11,7 +11,6 @@ export function instantiateJetComponent({ element, domComponentClass, compositeC
 }
 
 export function renderNewRootComponent(element, container) {
-  console.log('yo renderNewRootComponent element', element, 'container', container)
   const wrappedElement = this.createElement(TopLevelWrapper, element);
   const componentInstance = new JetCompositeComponentWrapper(wrappedElement);
 
