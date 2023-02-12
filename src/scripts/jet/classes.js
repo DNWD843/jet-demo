@@ -102,6 +102,7 @@ export class JetCompositeComponentWrapper {
       componentInstance.componentDidMount();
     }
 
+
     return markup;
   }
 

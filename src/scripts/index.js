@@ -19,39 +19,39 @@ import { Jet } from "./jet";
 //   [H1, span],
 // )
 
-const headerComponent = Jet.createClass({
-  render() {
-    const H1 = Jet.createElement(
-      'h1',
-      { className: 'title' },
-      'My Jet project',
-    );
-
-    const Span = Jet.createElement(
-      'span',
-      { className: 'subtitle' },
-      'subtitle',
-    )
-    return Jet.createElement(
-      'header',
-      { className: 'header'},
-      [H1, Span],
-    )
-  }
-})
-
-const headerEl = Jet.createElement(headerComponent, {})
-
-const container = Jet.createElement(
-  'div',
-  { className: 'container' },
-)
-
-Jet.render(container, rootContainer);
-
-const containerNode = document.querySelector('.container');
-
-Jet.render(headerEl, containerNode);
+// const headerComponent = Jet.createClass({
+//   render() {
+//     const H1 = Jet.createElement(
+//       'h1',
+//       { className: 'title' },
+//       'My Jet project',
+//     );
+//
+//     const Span = Jet.createElement(
+//       'span',
+//       { className: 'subtitle' },
+//       'subtitle',
+//     )
+//     return Jet.createElement(
+//       'header',
+//       { className: 'header'},
+//       [H1, Span],
+//     )
+//   }
+// })
+//
+// const headerEl = Jet.createElement(headerComponent, {})
+//
+// const container = Jet.createElement(
+//   'div',
+//   { className: 'container' },
+// )
+//
+// Jet.render(container, rootContainer);
+//
+// const containerNode = document.querySelector('.container');
+//
+// Jet.render(headerEl, containerNode);
 
 
 
@@ -114,3 +114,68 @@ Jet.render(headerEl, containerNode);
 //     rootContainer,
 //   );
 // }, 2000);
+
+const App = Jet.createClass({
+  render() {
+    return Jet.createElement(
+      'div',
+      { className: 'app-container' },
+      [
+        Jet.createElement('header', { className: 'header' }),
+        Jet.createElement('main', { className: 'main' }),
+        Jet.createElement('footer', { className: 'footer' }),
+      ]
+    )
+  }
+})
+
+Jet.render(Jet.createElement(App, null), rootContainer);
+
+const headerContainer = document.querySelector('.header');
+const mainContainer = document.querySelector('.main');
+const footerContainer = document.querySelector('.footer');
+
+const Header = Jet.createClass({
+  render() {
+    return Jet.createElement(
+      'div',
+      { className: 'header-container' },
+      [
+        Jet.createElement('h1', { className: 'logo' }, this.props.title || 'Hello, Jet!'),
+        Jet.createElement('p', { className: 'slogan' }, this.props.subTitle || ''),
+      ],
+    );
+  }
+});
+
+Jet.render(Jet.createElement(Header, { title: 'Jet', subTitle: 'Just try it!' }), headerContainer);
+
+const Main = Jet.createClass({
+  render() {
+    return Jet.createElement(
+      'div',
+      { className: 'main-container' },
+      [
+        Jet.createElement('span', { className: 'content-title' }, this.props.contentTitle || ''),
+        Jet.createElement('div', { className: 'content-image' }),
+      ],
+    );
+  }
+});
+
+Jet.render(Jet.createElement(Main, { contentTitle: 'Hi! My name is Jet!' }), mainContainer);
+
+const Footer = Jet.createClass({
+  render() {
+    return Jet.createElement(
+      'div',
+      { className: 'footer-container' },
+      [
+        Jet.createElement('span', { className: 'copyright' }, 'Mad Damon'),
+        Jet.createElement('span', { className: 'date' }, '2023'),
+      ]
+    )
+  }
+})
+
+Jet.render(Jet.createElement(Footer), footerContainer);
