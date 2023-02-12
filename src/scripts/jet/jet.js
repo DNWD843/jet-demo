@@ -25,7 +25,7 @@ export const Jet = {
       props: props || {},
     };
 
-    if (typeof children === 'string') {
+    if (children) {
       element.props.children = children;
     }
 
