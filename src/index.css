@@ -76,7 +76,21 @@
     background-size: contain;
     width: 60%;
     padding-bottom: 60%;
+}
 
+.content-colored-box {
+    width: 60%;
+    padding-bottom: 5%;
+}
+
+.color-red {
+    background-color: red;
+}
+.color-green {
+    background-color: green;
+}
+.color-blue {
+    background-color: blue;
 }
 
 .footer {
