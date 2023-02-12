@@ -171,8 +171,16 @@ const Footer = Jet.createClass({
       'div',
       { className: 'footer-container' },
       [
-        Jet.createElement('span', { className: 'copyright' }, 'Mad Damon'),
-        Jet.createElement('span', { className: 'date' }, '2023'),
+        Jet.createElement('span', { className: 'copyright' }, 'Mad Damon, 2023'),
+        Jet.createElement(
+          'div',
+          { className: 'links' },
+          [
+            Jet.createElement('span', { className: 'link' }, 'LinkedIn'),
+            Jet.createElement('span', { className: 'link' }, 'GitHub'),
+            Jet.createElement('span', { className: 'link' }, 'Telegram'),
+          ]
+        ),
       ]
     )
   }

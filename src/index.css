@@ -59,7 +59,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 50px;
 }
 
 .content-title {
@@ -73,11 +73,10 @@
     background-image: url('https://wikipet.ru/uploads/posts/2019-02/1549868089_1.jpg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
+    background-size: contain;
+    width: 60%;
+    padding-bottom: 60%;
 
-
-    padding-bottom: 100%;
 }
 
 .footer {
@@ -97,4 +96,20 @@
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
+}
+
+.links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    cursor: pointer;
+    transition: all ease-in-out .125s;
+}
+
+.link:hover {
+    color: darkgrey;
 }
