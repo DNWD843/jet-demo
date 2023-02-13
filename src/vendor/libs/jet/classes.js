@@ -1,5 +1,5 @@
 import { JetReconciler } from "./JetReconciler.js";
-import { instantiateJetComponent } from "./helpers.js";
+import { instantiateJetComponent, isObject } from "./helpers.js";
 import { JetInstanceMap } from "./instanceMap.js";
 
 export class JetDOMComponent {
@@ -34,17 +34,25 @@ export class JetDOMComponent {
 
     if (Array.isArray(children)) {
       children.forEach(child => {
-        const component = new JetDOMComponent(child);
-        const childElement = component.mountComponent(domElement);
+        const childElement = this._renderChild(child, domElement);
         domElement.appendChild(childElement);
       })
-    } else if (typeof children === 'object' && Object.hasOwn(children, 'type')) {
-      const component = new JetDOMComponent(children);
-      const childElement = component.mountComponent(domElement);
+    } else if (isObject(children)) {
+      const childElement = this._renderChild(children, domElement);
       domElement.appendChild(childElement);
     }
 
     return domElement;
+  }
+
+  _renderChild(child, container) {
+    const component = instantiateJetComponent({
+      element: child,
+      domComponentClass: JetDOMComponent,
+      compositeComponentClass: JetCompositeComponentWrapper,
+    });
+
+    return JetReconciler.mountComponent(component, container);
   }
 
   _updateDOMProperties(prevProps, nextProps) {
