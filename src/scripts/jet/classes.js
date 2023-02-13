@@ -8,12 +8,24 @@ export class JetDOMComponent {
   }
 
   mountComponent(container) {
+    const domElement = this._createDomElementWithChildren();
+
+    container.appendChild(domElement);
+
+    this._hostNode = domElement;
+
+    return domElement;
+  }
+
+  _createDomElementWithChildren() {
     const domElement = document.createElement(this._currentElement.type);
     const { children, ...props } = this._currentElement.props;
 
     Object.keys(props).forEach((key) => {
       domElement[key] = props[key];
     })
+
+    if (!children) return domElement;
 
     if (typeof children === 'string') {
       const textNode = document.createTextNode(children);
@@ -31,10 +43,6 @@ export class JetDOMComponent {
       const childElement = component.mountComponent(domElement);
       domElement.appendChild(childElement);
     }
-
-    container.appendChild(domElement);
-
-    this._hostNode = domElement;
 
     return domElement;
   }
