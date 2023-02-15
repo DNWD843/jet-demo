@@ -124,7 +124,7 @@
     right: 0;
     bottom: 0;
     background: rgba(3, 154, 248, 1);
-    padding: 10px;
+    padding: 15px 10px;
     box-sizing: border-box;
 }
 
@@ -143,13 +143,17 @@
     justify-content: center;
     align-items: center;
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .link {
     cursor: pointer;
     transition: all ease-in-out .125s;
     text-decoration: none;
-    color: var(--text-color-main)
+    color: var(--text-color-main);
+    margin: 0;
+    padding: 0;
 }
 
 .link:hover {
