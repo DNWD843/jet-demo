@@ -22,7 +22,7 @@ export class JetDOMComponent {
     const { children, ...props } = this._currentElement.props;
 
     Object.keys(props).forEach((key) => {
-      domElement[key] = props[key];
+      domElement[key.startsWith('on') ? key.toLowerCase() : key] = props[key];
     })
 
     if (!children) return domElement;
@@ -71,20 +71,17 @@ export class JetDOMComponent {
 
   updateContent(newContent) {
     const node = this._hostNode;
+    const firstChild = node.firstChild;
 
     if (typeof newContent === 'string') {
       node.textContent = newContent;
     }
 
-    const firstChild = node.firstChild;
-
     if (firstChild && firstChild === node.lastChild && firstChild.nodeType === Node.TEXT_NODE ) {
       firstChild.nodeValue = newContent;
     }
 
-
     if (firstChild && firstChild === node.lastChild && firstChild.nodeType === Node.ELEMENT_NODE ) {
-      console.log('YO element node!')
       const childElement = this._renderChild(newContent, firstChild);
       node.firstChild.replaceWith(childElement);
     }

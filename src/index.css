@@ -59,7 +59,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 35px;
 }
 
 .content-title {
@@ -91,6 +91,28 @@
 }
 .color-blue {
     background-color: blue;
+}
+
+.change-color-button {
+    padding: 10px 30px;
+    border: 1px solid gold;
+    border-radius: 4px;
+    background-color: darksalmon;
+    color: darkred;
+    cursor: pointer;
+    transition: all ease-in-out .125s;
+}
+
+.change-color-button:hover {
+    background-color: salmon;
+    color: antiquewhite;
+    box-shadow: 0 0 15px white;
+}
+
+.change-color-button:active {
+    background-color: salmon;
+    color: antiquewhite;
+    box-shadow: none;
 }
 
 .footer {

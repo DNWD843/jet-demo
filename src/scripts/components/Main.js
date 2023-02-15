@@ -9,10 +9,6 @@ export const Main = Jet.createClass({
     this.handleClick = this.handleClick.bind(this);
   },
 
-  componentDidMount() {
-    console.log('yo', this.state.color)
-  },
-
   handleClick() {
     this.setState(prev => {
       if (prev.color === 'red') {
@@ -37,7 +33,7 @@ export const Main = Jet.createClass({
         [
           Jet.createElement('span', { className: 'content-title' }, this.props.contentTitle || ''),
           Jet.createElement('div', { className: 'content-image' }),
-          Jet.createElement('button', { className: 'content-color-button', onclick: this.handleClick }, 'Click me'),
+          Jet.createElement('button', { className: 'change-color-button', onClick: this.handleClick }, 'Click me'),
         ],
       ),
     );
