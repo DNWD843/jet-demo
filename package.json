@@ -1,7 +1,0 @@
-{
-  "name": "jet-demo",
-  "version": "1.0.0",
-  "homepage": ".",
-  "main": "index.js",
-  "type": "module"
-}
