@@ -11,12 +11,30 @@ export const Footer = Jet.createClass({
         [
           Jet.createElement('span', { className: 'copyright' }, 'Mad Damon, 2023'),
           Jet.createElement(
-            'div',
+            'ul',
             { className: 'links' },
             [
-              Jet.createElement('span', { className: 'link' }, 'LinkedIn'),
-              Jet.createElement('span', { className: 'link' }, 'GitHub'),
-              Jet.createElement('span', { className: 'link' }, 'Telegram'),
+              Jet.createElement('li', { className: 'list-item' },
+                Jet.createElement(
+                  'a',
+                  { className: 'link', href: 'https://linkedin.com/in/maddamon', rel: 'noopener noreferrer', target: '_blank' },
+                  'LinkedIn',
+                ),
+              ),
+              Jet.createElement('li', { className: 'list-item' },
+                Jet.createElement(
+                  'a',
+                  { className: 'link', href: 'https://github.com/DNWD843', rel: 'noopener noreferrer', target: '_blank' },
+                  'GitHub',
+                ),
+              ),
+              Jet.createElement('li', { className: 'list-item' },
+                Jet.createElement(
+                  'a',
+                  { className: 'link', href: 'https://t.me/mad_damon', rel: 'noopener noreferrer', target: '_blank' },
+                  'Telegram',
+                ),
+              ),
             ]
           ),
         ]

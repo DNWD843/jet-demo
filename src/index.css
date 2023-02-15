@@ -1,6 +1,7 @@
 .root {
     margin: 0;
     font-family: 'Roboto Light', Arial, sans-serif;
+    color: var(--text-color-main);
 }
 .content {
     width: 100%;
@@ -141,13 +142,20 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
+    list-style: none;
 }
 
 .link {
     cursor: pointer;
     transition: all ease-in-out .125s;
+    text-decoration: none;
+    color: var(--text-color-main)
 }
 
 .link:hover {
     color: darkgrey;
+}
+
+:root {
+    --text-color-main: #212121;
 }
