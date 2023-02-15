@@ -63,20 +63,30 @@ export class JetDOMComponent {
     const nextContent = nextProps.children;
 
     if (!nextContent) {
-      this.updateTextContent('');
+      this.updateContent(null);
     } else if (prevContent !== nextContent) {
-      this.updateTextContent(String(nextContent));
+      this.updateContent(nextContent);
     }
   }
 
-  updateTextContent(text) {
+  updateContent(newContent) {
     const node = this._hostNode;
-    node.textContent = text;
+
+    if (typeof newContent === 'string') {
+      node.textContent = newContent;
+    }
 
     const firstChild = node.firstChild;
 
     if (firstChild && firstChild === node.lastChild && firstChild.nodeType === Node.TEXT_NODE ) {
-      firstChild.nodeValue = text;
+      firstChild.nodeValue = newContent;
+    }
+
+
+    if (firstChild && firstChild === node.lastChild && firstChild.nodeType === Node.ELEMENT_NODE ) {
+      console.log('YO element node!')
+      const childElement = this._renderChild(newContent, firstChild);
+      node.firstChild.replaceWith(childElement);
     }
   }
 

@@ -14,9 +14,7 @@ export const Main = Jet.createClass({
   },
 
   handleClick() {
-    console.log('yo click', this)
     this.setState(prev => {
-      console.log('yo prev', prev)
       if (prev.color === 'red') {
         return ({ color: 'green' })
       }
