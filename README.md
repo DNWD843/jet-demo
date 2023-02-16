@@ -17,4 +17,4 @@ Install dependencies: `yarn install` or `npm install`
 ### Available scripts  
 `yarn run dev` or `npm run dev` - starts the project in dev mode with hot reload, it will be available at `http://localhost:8080/`    
 
-To see the deployed project follow this <a href="https://dnwd843.github.io/jet-demo/" target="_blank" rel="noopener noreferrer">link</a>.  
+To see the deployed project follow this [link](https://dnwd843.github.io/jet-demo/).  
